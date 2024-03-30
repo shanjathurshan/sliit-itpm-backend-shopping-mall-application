@@ -18,7 +18,9 @@ connectDB();
 
 app.use(logger);
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+// allow cors requests from any origin and with credentials
+app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
 
 app.use(express.json());
 

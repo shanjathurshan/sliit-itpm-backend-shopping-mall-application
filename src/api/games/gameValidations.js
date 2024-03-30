@@ -16,7 +16,7 @@ const updateGameSchema = z.object({
 });
 
 const deleteGameSchema = z.object({
-    userId: z.string().min(1)
+    id: z.string().min(1)
 });
 
 const getGameByIdSchema = z.object({

@@ -79,14 +79,15 @@ const updateGame = asyncHandler(async (req, res) => {
 // @route DELETE /games
 // @access Private
 const deleteGame = asyncHandler(async (req, res) => {
-  const { userId } = req.body;
+  const { id } = req.body;
   // Find the game by userId
-  const game = await Game.findOne({ userId }).lean().exec();
+  const game = await Game.findById( id ).lean().exec();
   if (!game) {
     return res.status(404).json({ message: "Game not found" });
   }
+  console.log(game)
   // Delete the game
-  await Game.findOneAndDelete({ userId }).lean().exec();
+  await Game.findOneAndDelete({ _id: id }).lean().exec();
   res.json({ message: "Game deleted successfully" });
 });
 
@@ -134,8 +135,8 @@ const getGameEnrolledCourses = asyncHandler(async (req, res) => {
 module.exports = {
   getAllGames,
   createNewGame,
-  updateGame,
   deleteGame,
+  updateGame,
   getGameById,
   getGameByGameId,
   getGameEnrolledCourses
