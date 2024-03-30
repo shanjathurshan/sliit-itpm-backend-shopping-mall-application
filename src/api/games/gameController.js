@@ -9,7 +9,7 @@ const { z } = require("zod");
 const getAllGames = asyncHandler(async (req, res) => {
   // Pagination parameters
   const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 10;
+  const limit = parseInt(req.query.limit) || 0;
   const startIndex = (page - 1) * limit;
   const endIndex = page * limit;
 

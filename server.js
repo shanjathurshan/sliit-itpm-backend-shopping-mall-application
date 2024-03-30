@@ -16,23 +16,19 @@ const PORT = process.env.PORT || 3500;
 
 console.log(process.env.NODE_ENV);
 
+app.use(express.json())
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-// allow cors requests from any origin and with credentials
-app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
-app.use(cookieParser());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 connectDB();
 
 app.use(logger);
-
+// allow cors requests from any origin and with credentials
+app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
+app.use(cookieParser());
 // app.use(cors(corsOptions));
 
-
-// app.use(express.json())
-// app.use(express.urlencoded({ extended: true}));
-// app.use(express.json());
 
 // to serve static files
 // app.use("/", express.static(path.join(__dirname, "public")));
@@ -44,6 +40,9 @@ app.use("/users", require("./src/api/users/userRoutes"));
 
 app.use("/games", require("./src/api/games/gameRoutes"));
 
+
+// Access Images from the uploads folder
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 
