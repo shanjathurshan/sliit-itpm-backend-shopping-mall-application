@@ -1,7 +1,7 @@
 {
-  "name": "scheduling-app",
+  "name": "sliit-itpm-backend-shopping-mall-application",
   "version": "1.0.0",
-  "description": "University Scheduling App API",
+  "description": "sliit-itpm-backend-shopping-mall-application",
   "main": "server.js",
   "scripts": {
     "start": "node server",

@@ -30,14 +30,9 @@ app.use(cookieParser());
 // app.use("/", require("./routes/root"));
 app.use("/auth", require("./src/api/auth/authRoutes"));
 app.use("/users", require("./src/api/users/userRoutes"));
-app.use("/faculties", require("./src/api/faculty/facultyRoutes"));
-app.use("/students", require("./src/api/students/studentRoutes"));
-app.use("/staff", require("./src/api/staff/staffRoutes"));
-app.use("/courses", require("./src/api/courses/courseRoutes"));
-app.use("/enrolments", require("./src/api/enrolments/enrolmentsRoutes"));
-app.use("/halls", require("./src/api/halls/hallRoutes"));
-app.use("/allocations", require("./src/api/hallAllocations/hallAllocationRoutes"));
-app.use("/schedule", require("./src/api/schedule/scheduleRoutes"));
+
+
+app.use("/games", require("./src/api/games/gameRoutes"));
 
 app.use(errorHandler);
 
