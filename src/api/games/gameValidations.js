@@ -4,8 +4,8 @@ const { z } = require("zod");
 const createGameSchema = z.object({
     userId: z.string().min(1),
     title: z.string().min(1),
-    price: z.number().min(1),
-    image: z.string().min(1)
+    price: z.coerce.number().min(1),
+    // image: z.string().min(1)
 });
 
 const updateGameSchema = z.object({

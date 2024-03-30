@@ -28,8 +28,10 @@ const getAllGames = asyncHandler(async (req, res) => {
 // @route POST /games
 // @access Private
 const createNewGame = asyncHandler(async (req, res) => {
-  const { userId, title, price, image } = req.body;
+  const { userId, title, price } = req.body;
+  console.log(req.body)
 
+  image = req.file.filename
   // Check for duplicate gameId
   const duplicate = await Game.findOne({ title })
     .lean()
