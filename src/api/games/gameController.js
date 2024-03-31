@@ -62,6 +62,12 @@ const createNewGame = asyncHandler(async (req, res) => {
 // @access Private
 const updateGame = asyncHandler(async (req, res) => {
   const { id } = req.body;
+
+  if (req.file) {
+    image = req.file.filename
+  }
+
+  console.log({...req.body, image})
   // Find the game by userId
   const game = await Game.findById({ _id: id }).lean().exec();
   if (!game) {
@@ -70,7 +76,7 @@ const updateGame = asyncHandler(async (req, res) => {
   // Update the game with the new data
   const updatedGame = await Game.findOneAndUpdate(
     { _id: id },
-    { $set: req.body },
+    { $set: {...req.body, image} },
     { new: true }
   ).lean().exec();
   res.json(updatedGame);
