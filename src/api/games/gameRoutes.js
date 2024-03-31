@@ -41,7 +41,7 @@ app.post('/submit-form', (req, res) => {
 router.route('/')
     .get(gameController.getAllGames)
     .post(upload.single('image'), validateRequest(createGameSchema), gameController.createNewGame)
-    .patch(validateRequest(updateGameSchema), gameController.updateGame)
+    .patch(upload.single('image'), validateRequest(updateGameSchema), gameController.updateGame)
     .delete(validateRequest(deleteGameSchema), gameController.deleteGame)
 
 router.route('/id')

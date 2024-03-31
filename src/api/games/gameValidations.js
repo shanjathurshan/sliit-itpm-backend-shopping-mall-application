@@ -9,9 +9,9 @@ const createGameSchema = z.object({
 });
 
 const updateGameSchema = z.object({
-    userId: z.string().min(1),
+    userId: z.string().min(1).optional(),
     title: z.string().min(1).optional(),
-    price: z.number().min(1).optional(),
+    price: z.coerce.number().min(1).optional(),
     image: z.string().min(1).optional()
 });
 

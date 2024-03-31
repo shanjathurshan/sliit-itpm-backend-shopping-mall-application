@@ -29,7 +29,6 @@ const getAllGames = asyncHandler(async (req, res) => {
 // @access Private
 const createNewGame = asyncHandler(async (req, res) => {
   const { userId, title, price } = req.body;
-  console.log(req.body)
 
   image = req.file.filename
   // Check for duplicate gameId
@@ -62,15 +61,15 @@ const createNewGame = asyncHandler(async (req, res) => {
 // @route PATCH /games
 // @access Private
 const updateGame = asyncHandler(async (req, res) => {
-  const { userId } = req.body;
+  const { id } = req.body;
   // Find the game by userId
-  const game = await Game.findOne({ userId }).lean().exec();
+  const game = await Game.findById({ _id: id }).lean().exec();
   if (!game) {
     return res.status(404).json({ message: "Game not found" });
   }
   // Update the game with the new data
   const updatedGame = await Game.findOneAndUpdate(
-    { userId },
+    { _id: id },
     { $set: req.body },
     { new: true }
   ).lean().exec();

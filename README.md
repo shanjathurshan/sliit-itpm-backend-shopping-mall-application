@@ -4,7 +4,7 @@ Certainly! Here's the README content formatted as a code snippet:
 
 ## Description
 
-This is the University Scheduling App API, designed to facilitate scheduling processes within a university environment.
+This is the Shopping mall app API. It is a RESTful API that allows users to manage their shopping mall. The API allows users to create, read, update, and delete shopping mall details.
 
 ## Installation
 
@@ -41,8 +41,3 @@ npm test
 ## API Documentation
 
 [https://documenter.getpostman.com/view/29658491/2sA35Bc4Yh](https://documenter.getpostman.com/view/29658491/2sA35Bc4Yh).
-
-## Diagrams
-
-![Image Description](https://github.com/sliitcsse/assignment-01-pawan-live/assets/86240715/b63b24b7-0e23-43ae-87a8-ad1ffa264d58)
-# sliit-itpm-backend-shopping-mall-application
